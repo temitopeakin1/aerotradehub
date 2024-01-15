@@ -17,8 +17,6 @@ export default async function Home({ searchParams }: HomeProps) {
       engine: searchParams.engine || "",
   });
   
-
-
   const isDataEmpty =
     !Array.isArray(allAeros) || allAeros.length < 1 || !allAeros;
   console.log(allAeros)
@@ -38,20 +36,22 @@ export default async function Home({ searchParams }: HomeProps) {
             <CustomFilter title="engine" options={engine} />
           </div>
         </div>
-        {/*items in the collection */}
-        {!isDataEmpty ? (
-          <section>
-            <div className="home__aeros-wrapper">
-              {allAeros?.map((aero) => (
-                <AeroCard aero={aero} />
-              ))}
-            </div>
-            <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allAeros.length}
-            />
-          </section>
-           ) : (
+        {!allAeros ? (
+        <p>Loading...</p>
+      ) : !isDataEmpty ? (
+        <section>
+          <div className='home__aeros-wrapper'>
+            {allAeros.map((aero, index) => (
+              <AeroCard key={aero.id || index} aero={aero} />
+            ))}
+          </div>
+
+          <ShowMore
+            pageNumber={(searchParams.limit || 10) / 10}
+            isNext={(searchParams.limit || 10) > allAeros.length}
+          />
+        </section>
+        ) : (
             <div className='home__error-container'>
               <h2 className='text-black text-xl font-bold'>No matching results</h2>
               <p>{allAeros?.message}</p>
