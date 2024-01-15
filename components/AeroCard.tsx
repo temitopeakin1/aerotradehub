@@ -57,7 +57,7 @@ const AeroCard = ({ aero }: AeroCardProps) => {
           </div>
 
         <div className="aero-card__btn-container">
-          <CustomButton
+        <CustomButton
             title='View More'
             containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
@@ -66,6 +66,7 @@ const AeroCard = ({ aero }: AeroCardProps) => {
           />
         </div>
       </div>
+      
 
       <AeroDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} aero={aero} />
     </div>

@@ -41,7 +41,7 @@ export default async function Home({ searchParams }: HomeProps) {
         {/*items in the collection */}
         {!isDataEmpty ? (
           <section>
-            <div className="home__aeros-warpper">
+            <div className="home__aeros-wrapper">
               {allAeros?.map((aero) => (
                 <AeroCard aero={aero} />
               ))}

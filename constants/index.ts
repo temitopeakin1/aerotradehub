@@ -15,10 +15,6 @@ export const manufacturers = [
   
   export const engine = [
     {
-      title: "engine",
-      value: "",
-    },
-    {
       title: "Jet",
       value: "Jet",
     },
